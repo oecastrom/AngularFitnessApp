@@ -37,7 +37,7 @@
             required
             type="email"
             name="email"
-            placeholder="exampleEmail@emailProvider.com"
+            placeholder="Email"
             matInput 
             ngModel
             #emailInput="ngModel"
@@ -78,12 +78,25 @@
         </mat-form-field>
 
         <!-- Remember Me Checkbox -->
+        <mat-checkbox
+            name="rememberMe"
+            color="primary"
+            ngModel
+        >Remember me</mat-checkbox>
 
         <!-- Login Button -->
+        <button
+            type="submit"
+            color="primary"
+            [disabled]="form.invalid"
+            mat-raised-button
+        >Login</button>
 
         <!-- Registration Link -->
+        <!-- <a routerLink="/signup"></a> -->
 
         <!-- Forgot your password? Link -->
+        <!-- <a routerLink="/passwordReset"></a> -->
 
     </form>
 

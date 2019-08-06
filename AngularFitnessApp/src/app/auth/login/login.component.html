@@ -1,1 +1,90 @@
-<p>login works!</p>
+<section>
+
+    <!-- 
+        Note: 
+               # : infront of a word means its a local template variable 
+               you declare/define with the name given after the # symbol
+               -> can be any name you want and you set it 
+               to "ngForm"; ex: #myForm="ngForm"
+               you can handle it in your ts file 
+               Creates a top-level FormGroup instance and binds it to a form to track
+               aggregate form value and validation status
+
+               (ngSubmit) : If necessary, listen to the directive's ngSubmit event to be notified 
+               when the user has triggered a form submission. The ngSubmit event emits the original
+               form submission event.
+
+               onSubmit : ts function to handle form submission
+    -->
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+        <h3>Login</h3>
+
+        <!-- Email -->
+        <!--
+            matInput : matInput directive works with native <input> to provide an accessible experience.
+
+            ngModel : To inspect the properties of the associated FormControl (like validity state), 
+            export the directive into a local template variable using ngModel as the key (ex: #myVar="ngModel"). 
+            You then access the control using the directive's control property, but most properties used (
+            like valid and dirty) fall through to the control anyway for direct access. See a full list 
+            of properties directly available in AbstractControlDirective.
+        -->
+        <mat-form-field>
+            
+            <input
+            email
+            required
+            type="email"
+            name="email"
+            placeholder="exampleEmail@emailProvider.com"
+            matInput 
+            ngModel
+            #emailInput="ngModel"
+            >
+
+            <mat-error *ngIf="emailInput.hasError('required')">
+                Field must not be empty.
+            </mat-error>
+
+            <mat-error *ngIf="!emailInput.hasError('required')">
+                Email format is invalid.
+           </mat-error>
+        
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field>
+
+            <input
+                #passwordInput="ngModel"
+                ngModel
+                matInput
+                required
+                type="password"
+                name="password"
+                placeholder="Password"
+                minlength="6"
+            >
+
+            <mat-error *ngIf="passwordInput.hasError('required')">
+                    Field must not be empty.
+                </mat-error>
+
+            <mat-error *ngIf="passwordInput.errors?.minlength">
+                Password should be 6 characters long.
+            </mat-error>
+
+        </mat-form-field>
+
+        <!-- Remember Me Checkbox -->
+
+        <!-- Login Button -->
+
+        <!-- Registration Link -->
+
+        <!-- Forgot your password? Link -->
+
+    </form>
+
+</section>

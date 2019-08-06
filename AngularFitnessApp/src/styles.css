@@ -1,2 +1,13 @@
 /* DEFAULT CSS STYLING RECOMMENDED BY MATERIAL.ANGULAR.IO */
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* GLOBAL CSS STYLE SETTINGS */
+html, 
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}

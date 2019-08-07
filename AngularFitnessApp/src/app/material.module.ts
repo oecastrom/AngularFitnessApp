@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { 
+import {
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
@@ -9,13 +9,18 @@ import {
     MatCheckboxModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
 } from '@angular/material';
 
 /* THIS MODULE IS USED TO MANAGE ALL MATERIAL COMPONENTS */
 
 @NgModule({
-    imports : [
+    imports: [
         MatButtonModule,
         MatIconModule,
         MatFormFieldModule,
@@ -25,9 +30,14 @@ import {
         MatCheckboxModule,
         MatSidenavModule,
         MatToolbarModule,
-        MatListModule
+        MatListModule,
+        MatTabsModule,
+        MatCardModule,
+        MatSelectModule,
+        MatProgressSpinnerModule,
+        MatDialogModule
     ],
-    exports : [
+    exports: [
         MatButtonModule,
         MatIconModule,
         MatFormFieldModule,
@@ -37,7 +47,12 @@ import {
         MatCheckboxModule,
         MatSidenavModule,
         MatToolbarModule,
-        MatListModule
+        MatListModule,
+        MatTabsModule,
+        MatCardModule,
+        MatSelectModule,
+        MatProgressSpinnerModule,
+        MatDialogModule
     ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

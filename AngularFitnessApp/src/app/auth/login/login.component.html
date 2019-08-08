@@ -16,10 +16,7 @@
 
                onSubmit : ts function to handle form submission
     -->
-    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #form="ngForm" (ngSubmit)="onSubmit(form)">
-
-        <h3>Login</h3>
-
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <!-- Email -->
         <!--
             matInput : matInput directive works with native <input> to provide an accessible experience.
@@ -33,21 +30,17 @@
         <mat-form-field>
             
             <input
-            email
-            required
             type="email"
-            name="email"
             placeholder="Email"
             matInput 
-            ngModel
-            #emailInput="ngModel"
+            formControlName="email"
             >
 
-            <mat-error *ngIf="emailInput.hasError('required')">
+            <mat-hint>
                 Field must not be empty.
-            </mat-error>
+            </mat-hint>
 
-            <mat-error *ngIf="!emailInput.hasError('required')">
+            <mat-error>
                 Email format is invalid.
            </mat-error>
         
@@ -57,22 +50,18 @@
         <mat-form-field>
 
             <input
-                #passwordInput="ngModel"
-                ngModel
+                formControlName="password"
                 matInput
-                required
                 type="password"
-                name="password"
                 placeholder="Password"
-                minlength="6"
             >
 
-            <mat-error *ngIf="passwordInput.hasError('required')">
-                    Field must not be empty.
-                </mat-error>
+            <mat-hint>
+                    Please enter your password.
+                </mat-hint>
 
-            <mat-error *ngIf="passwordInput.errors?.minlength">
-                Password should be 6 characters long.
+            <mat-error>
+                Field must not be empty.
             </mat-error>
 
         </mat-form-field>
@@ -81,14 +70,13 @@
         <mat-checkbox
             name="rememberMe"
             color="primary"
-            ngModel
         >Remember me</mat-checkbox>
 
         <!-- Login Button -->
         <button
             type="submit"
             color="primary"
-            [disabled]="form.invalid"
+            [disabled]="loginForm.invalid"
             mat-raised-button
         >Login</button>
 

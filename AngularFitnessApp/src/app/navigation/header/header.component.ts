@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  // Output decorator is used to other components can listen in on the event
+  // Output decorator is used so other components can listen in on the event
   // EventEmitter is void because no payload is being sent with it
   @Output() sidenavToggle = new EventEmitter<void>();
   isAuth: boolean;
